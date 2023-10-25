@@ -4,11 +4,13 @@ package com.employee.employeeappdemo.controller;
 import com.employee.employeeappdemo.model.Employee;
 import com.employee.employeeappdemo.service.IEmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3000/")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/employee")
@@ -16,9 +18,9 @@ public class EmployeeController {
 
     private final IEmployeeService employeeService;
 
-    @GetMapping("/")
-    public List<Employee> getAll(){
-        return employeeService.getEmployee();
+    @GetMapping()
+    public ResponseEntity<List<Employee> >getAll(){
+        return new ResponseEntity<>(employeeService.getEmployee(),HttpStatus.FOUND);
     }
 
     @GetMapping("/getEmployee/{id}")
@@ -26,7 +28,7 @@ public class EmployeeController {
         return employeeService.getEmployeeById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public Employee addEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
     }
