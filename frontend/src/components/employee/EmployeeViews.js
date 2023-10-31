@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Search from "./Search";
+import Search from "../common/Search";
+import { Link } from "react-router-dom";
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 
 const EmployeeViews = () => {
@@ -63,13 +64,21 @@ const EmployeeViews = () => {
                 <td>{employee.address}</td>
                 <td>{employee.creation_DATE}</td>
                 <td className="d-flex my-0">
-                  <button className="btn btn-info mx-2">
-                    <FaEye />
-                  </button>
-                  <button className="btn btn-warning mx-2">
-                    <FaEdit />
-                  </button>
-                  <button className="btn btn-danger mx-2">
+                  <Link to={`/employee-profile/${employee.id}`}>
+                    <button className="btn btn-info mx-2">
+                      <FaEye />
+                    </button>
+                  </Link>
+
+                  <Link to={`/edit-employee/${employee.id}`}>
+                    <button className="btn btn-warning mx-2">
+                      <FaEdit />
+                    </button>
+                  </Link>
+
+                  <button
+                    className="btn btn-danger mx-2"
+                    onClick={() => handleDelete(employee.id)}>
                     <FaTrashAlt />
                   </button>
                 </td>
