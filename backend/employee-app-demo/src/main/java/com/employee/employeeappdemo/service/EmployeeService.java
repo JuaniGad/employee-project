@@ -35,6 +35,7 @@ public class EmployeeService implements IEmployeeService{
             emp.setFirstName(employee.getFirstName());
             emp.setLastName(employee.getLastName());
             emp.setEmail(employee.getEmail());
+            emp.setDepartment(employee.getDepartment());
             emp.setAddress(employee.getAddress());
             emp.setSalary(employee.getSalary());
             emp.setDni(employee.getDni());
