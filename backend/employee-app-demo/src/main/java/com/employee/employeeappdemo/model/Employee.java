@@ -31,6 +31,4 @@ public class Employee {
 
     private final LocalDate CREATION_DATE=LocalDate.now();
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Salary> salaries;
 }

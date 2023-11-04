@@ -20,6 +20,7 @@ public class SalaryController {
     public List<Salary> getAll(){
         return  iSalaryService.getAllSalaries();
     }
+
     @PostMapping ("/")
     public Salary addSalary(@RequestBody Salary salary){
         return iSalaryService.createSalary(salary);

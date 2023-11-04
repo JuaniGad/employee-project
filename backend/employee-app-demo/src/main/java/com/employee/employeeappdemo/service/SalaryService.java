@@ -1,12 +1,15 @@
 package com.employee.employeeappdemo.service;
 
+import com.employee.employeeappdemo.exception.EmployeeALreadyExistsException;
 import com.employee.employeeappdemo.exception.SalariesNotFoundException;
+import com.employee.employeeappdemo.exception.SalaryALreadyExistsException;
 import com.employee.employeeappdemo.model.Salary;
 import com.employee.employeeappdemo.repository.SalaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.PrivilegedAction;
 import java.util.List;
 
 @Service
@@ -80,6 +83,7 @@ public class SalaryService implements ISalaryService{
 
     @Override
     public Salary createSalary(Salary salary) {
+
         return salaryRepository.save(salary);
     }
 
@@ -87,10 +91,5 @@ public class SalaryService implements ISalaryService{
     public Salary getSalaryById(Long id) {
         return salaryRepository.findById(id).orElseThrow(()->new SalariesNotFoundException("Sorry, the salary that was associated with this ID was not found."));
     }
-
-
-
-
-
 
 }

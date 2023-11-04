@@ -34,7 +34,4 @@ public class Salary {
     private Integer november;
     private Integer december;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
 }
