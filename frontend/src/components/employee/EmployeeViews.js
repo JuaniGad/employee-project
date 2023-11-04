@@ -44,6 +44,7 @@ const EmployeeViews = () => {
             <th scope="col">Salary</th>
             <th scope="col">Address</th>
             <th scope="col">Creation Date</th>
+            <th scope="col">Salaries</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -63,6 +64,13 @@ const EmployeeViews = () => {
                 <td>{employee.salary}</td>
                 <td>{employee.address}</td>
                 <td>{employee.creation_DATE}</td>
+                <td>
+                  <Link to={`/create-salary/${employee.id}`}>
+                    <button className="btn btn-primary mx-2">
+                      <FaEdit />
+                    </button>
+                  </Link>
+                </td>
                 <td className="d-flex my-0">
                   <Link to={`/employee-profile/${employee.id}`}>
                     <button className="btn btn-info mx-2">

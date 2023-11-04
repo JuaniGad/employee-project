@@ -6,6 +6,7 @@ import AddEmployee from "./components/employee/AddEmployee";
 import EditEmployee from "./components/employee/EditEmployee";
 import EmployeeProfile from "./components/employee/EmployeeProfile";
 import NavBar from "./components/common/NavBar";
+import AddSalary from "./components/salary/AddSalary";
 function App() {
   return (
     <main className="container mt-5">
@@ -26,6 +27,11 @@ function App() {
             exact
             path="/employee-profile/:id"
             element={<EmployeeProfile />}></Route>
+
+          <Route
+            exact
+            path="/create-salary/:id"
+            element={<AddSalary />}></Route>
         </Routes>
       </Router>
     </main>

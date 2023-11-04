@@ -55,7 +55,6 @@ const EmployeeProfile = () => {
               </div>
             </div>
           </div>
-
           <div className="col-lg-9">
             <div className="card mb-4">
               <div className="card-body">
@@ -87,90 +86,90 @@ const EmployeeProfile = () => {
                   <div className="col-sm-3">
                     <h5 className="mb-0">DNI</h5>
                   </div>
+                </div>
 
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{employee.dni}</p>
+                <div className="col-sm-9">
+                  <p className="text-muted mb-0">{employee.dni}</p>
+                </div>
+
+                <hr />
+
+                <div className="row">
+                  <div className="col-sm-3">
+                    <h5 className="mb-0">Address</h5>
                   </div>
 
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{employee.address}</p>
+                  </div>
                   <hr />
 
                   <div className="row">
                     <div className="col-sm-3">
-                      <h5 className="mb-0">Address</h5>
+                      <h5 className="mb-0">Email</h5>
                     </div>
 
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{employee.address}</p>
+                      <p className="text-muted mb-0">{employee.email}</p>
                     </div>
-                    <hr />
+                  </div>
+                  <hr />
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h5 className="mb-0">Email</h5>
-                      </div>
-
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{employee.email}</p>
-                      </div>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h5 className="mb-0">Department</h5>
                     </div>
-                    <hr />
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h5 className="mb-0">Department</h5>
-                      </div>
-
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{employee.department}</p>
-                      </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{employee.department}</p>
                     </div>
-                    <hr />
+                  </div>
+                  <hr />
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h5 className="mb-0">Salary</h5>
-                      </div>
-
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{employee.salary}</p>
-                      </div>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h5 className="mb-0">Salary</h5>
                     </div>
-                    <hr />
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h5 className="mb-0">Salaries</h5>
-                      </div>
-
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{employee.salaries}</p>
-                      </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{employee.salary}</p>
                     </div>
-                    <hr />
+                  </div>
+                  <hr />
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <h5 className="mb-0">Creation Date</h5>
-                      </div>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h5 className="mb-0">Salaries</h5>
+                    </div>
 
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">
-                          {employee.creation_DATE}
-                        </p>
-                      </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{employee.salaries}</p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h5 className="mb-0">Creation Date</h5>
+                    </div>
+
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">
+                        {employee.creation_DATE}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>{" "}
-            <div className="col-sm-2">
-              <Link
-                to={"/view-employee"}
-                type="submit"
-                className="btn btn-outline-danger btn-lg bg-red">
-                Back
-              </Link>
             </div>
+          </div>{" "}
+          <div className="col-sm-2">
+            <Link
+              to={"/view-employee"}
+              type="submit"
+              className="btn btn-outline-danger btn-lg bg-red">
+              Back
+            </Link>
           </div>
         </div>
       </div>
