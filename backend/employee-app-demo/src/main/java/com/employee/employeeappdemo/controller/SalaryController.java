@@ -2,7 +2,6 @@ package com.employee.employeeappdemo.controller;
 
 import com.employee.employeeappdemo.model.Salary;
 import com.employee.employeeappdemo.service.ISalaryService;
-import com.employee.employeeappdemo.service.SalaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

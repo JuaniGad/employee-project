@@ -8,7 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
 import java.time.LocalDate;
-import java.util.List;
+
 
 @Entity
 @Getter

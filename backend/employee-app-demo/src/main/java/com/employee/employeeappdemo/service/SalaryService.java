@@ -1,15 +1,15 @@
 package com.employee.employeeappdemo.service;
 
-import com.employee.employeeappdemo.exception.EmployeeALreadyExistsException;
+
 import com.employee.employeeappdemo.exception.SalariesNotFoundException;
-import com.employee.employeeappdemo.exception.SalaryALreadyExistsException;
+
 import com.employee.employeeappdemo.model.Salary;
 import com.employee.employeeappdemo.repository.SalaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.PrivilegedAction;
+
 import java.util.List;
 
 @Service
