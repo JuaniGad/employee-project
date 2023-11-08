@@ -2,7 +2,9 @@ package com.employee.employeeappdemo.controller;
 
 
 import com.employee.employeeappdemo.model.Employee;
+import com.employee.employeeappdemo.model.Salary;
 import com.employee.employeeappdemo.service.IEmployeeService;
+import com.employee.employeeappdemo.service.ISalaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.List;
 public class EmployeeController {
 
     private final IEmployeeService employeeService;
+    private final ISalaryService iSalaryService;
 
     @GetMapping()
     public ResponseEntity<List<Employee> >getAll(){
@@ -35,7 +38,19 @@ public class EmployeeController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteEmployee(@PathVariable Long id){
-    employeeService.deleteEmployeeById(id);
+
+        employeeService.deleteEmployeeById(id);
+
+        List<Salary> employeeSalaries=iSalaryService.getSalariesByIdEmployee(id);
+
+        Integer cant=employeeSalaries.size();
+
+        if(cant>0){
+            for( Salary salary:employeeSalaries){
+                iSalaryService.deleteSalaryById(salary.getId());
+            }
+        }
+
     }
 
     @PutMapping("/update/{id}")

@@ -4,6 +4,7 @@ import com.employee.employeeappdemo.exception.EmployeeALreadyExistsException;
 import com.employee.employeeappdemo.exception.EmployeeNotFoundException;
 import com.employee.employeeappdemo.model.Employee;
 import com.employee.employeeappdemo.repository.EmployeeRepository;
+import com.employee.employeeappdemo.repository.SalaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.List;
 public class EmployeeService implements IEmployeeService{
 
     private final EmployeeRepository employeeRepository;
+
+    private final SalaryRepository salaryRepository;
     @Override
     public Employee addEmployee(Employee employee) {
 
@@ -58,6 +61,8 @@ public class EmployeeService implements IEmployeeService{
             throw new EmployeeNotFoundException("Sory , employee not found");
 
         }
+
+
 
         employeeRepository.deleteById(id);
     }
