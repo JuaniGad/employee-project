@@ -18,7 +18,8 @@ public class Salary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private long idEmployee;
+    private Long idEmployee;
+
     private Integer year;
 
     private Integer january;

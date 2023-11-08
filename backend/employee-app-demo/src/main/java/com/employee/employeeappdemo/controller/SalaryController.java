@@ -40,4 +40,9 @@ public class SalaryController {
         return iSalaryService.updateSalaryById(salary,id);
     }
 
+    @GetMapping("/allSalaries/{id}")
+    public List<Salary> getAllSalariesByIdEmployee(@PathVariable Long id){
+        return iSalaryService.getSalariesByIdEmployee(id);
+    }
+
 }

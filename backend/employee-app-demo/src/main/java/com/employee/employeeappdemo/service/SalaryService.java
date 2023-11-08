@@ -3,12 +3,12 @@ package com.employee.employeeappdemo.service;
 
 import com.employee.employeeappdemo.exception.SalariesNotFoundException;
 
+import com.employee.employeeappdemo.exception.SalaryALreadyExistsException;
 import com.employee.employeeappdemo.model.Salary;
 import com.employee.employeeappdemo.repository.SalaryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 
@@ -18,29 +18,12 @@ public class SalaryService implements ISalaryService{
 
     @Autowired
     private final SalaryRepository salaryRepository;
-    @Override
-    public Salary getSalaryByYearByIdEmployee(Long idEmployee, Integer year) {
-        return null;
-    }
+
     @Override
     public List<Salary> getSalariesByIdEmployee(Long idEmployee) {
 
-        return null;
+        return salaryRepository.findSalaryByIdEmployee(idEmployee);
     }
-    @Override
-    public Salary updateSalaryByIdYear(Long idEmployee, Integer year) {
-        return null;
-    }
-
-    @Override
-    public void deleteSalaryByIdEmp(Long idEmployee) {
-
-    }
-    @Override
-    public Salary addSalaryByIdYear(Long idEmployee, Integer year) {
-        return null;
-    }
-
 
     //Salary methods with salarary ID
     @Override
@@ -84,12 +67,39 @@ public class SalaryService implements ISalaryService{
     @Override
     public Salary createSalary(Salary salary) {
 
-        return salaryRepository.save(salary);
+        if(SalaryAlreadyExists(salary)){
+            return salaryRepository.save(salary);
+
+        }else{
+            throw new SalaryALreadyExistsException("Sory the salary already exist");
+        }
     }
 
     @Override
     public Salary getSalaryById(Long id) {
         return salaryRepository.findById(id).orElseThrow(()->new SalariesNotFoundException("Sorry, the salary that was associated with this ID was not found."));
+    }
+
+    private boolean SalaryAlreadyExists(Salary salary){
+
+        String year=String.valueOf(salary.getYear());
+        String idEmploye=String.valueOf(salary.getIdEmployee());
+        String key=year+idEmploye;
+
+        List<Salary> allSalarries=salaryRepository.findAll();
+
+        for( Salary newSalary : allSalarries){
+
+            String newYear=String.valueOf(newSalary.getYear());
+            String newIdEmployee=String.valueOf(newSalary.getIdEmployee());
+            String newKey=newYear+newIdEmployee;
+
+            if(newKey.equals(key)){
+                return false;
+            }
+
+        }
+        return true;
     }
 
 }
