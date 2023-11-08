@@ -33,7 +33,7 @@ const EditEmployee = () => {
         );
         setEmployee(result.data);
       } catch (error) {
-        console.error("Error al cargar el estudiante:", error);
+        console.error("Error add employee:", error);
       }
     };
 

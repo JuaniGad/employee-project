@@ -53,9 +53,7 @@ const EmployeeViews = () => {
             .filter((st) => st.firstName.toLowerCase().includes(search))
             .map((employee, index) => (
               <tr key={employee.id}>
-                <th scope="row" key={index}>
-                  {employee.id}
-                </th>
+                <th scope="row">{employee.id}</th>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.dni}</td>
@@ -63,32 +61,47 @@ const EmployeeViews = () => {
                 <td>{employee.department}</td>
                 <td>{employee.salary}</td>
                 <td>{employee.address}</td>
-                <td>{employee.creation_DATE}</td>
-                <td>
-                  <Link to={`/create-salary/${employee.id}`}>
-                    <button className="btn btn-primary mx-2">
-                      <FaEdit />
-                    </button>
-                  </Link>
+                <td>{employee.creation_DATE || "N/A"}</td>
+                <td className="my-0">
+                  <div className="d-flex">
+                    <div className="d-inline-block mx-2">
+                      <Link to={`/create-salary/${employee.id}`}>
+                        <button className="btn btn-primary">
+                          <FaEdit />
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="d-inline-block mx-2">
+                      <Link to={`/view-salaries/${employee.id}`}>
+                        <button className="btn btn-success">
+                          <FaEye />
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </td>
-                <td className="d-flex my-0">
-                  <Link to={`/employee-profile/${employee.id}`}>
-                    <button className="btn btn-info mx-2">
-                      <FaEye />
+                <td className="d-flex">
+                  <div className="d-inline-block mx-2">
+                    <Link to={`/employee-profile/${employee.id}`}>
+                      <button className="btn btn-info">
+                        <FaEye />
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="d-inline-block mx-2">
+                    <Link to={`/edit-employee/${employee.id}`}>
+                      <button className="btn btn-warning">
+                        <FaEdit />
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="d-inline-block mx-2">
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDelete(employee.id)}>
+                      <FaTrashAlt />
                     </button>
-                  </Link>
-
-                  <Link to={`/edit-employee/${employee.id}`}>
-                    <button className="btn btn-warning mx-2">
-                      <FaEdit />
-                    </button>
-                  </Link>
-
-                  <button
-                    className="btn btn-danger mx-2"
-                    onClick={() => handleDelete(employee.id)}>
-                    <FaTrashAlt />
-                  </button>
+                  </div>
                 </td>
               </tr>
             ))}
