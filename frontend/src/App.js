@@ -7,6 +7,8 @@ import EditEmployee from "./components/employee/EditEmployee";
 import EmployeeProfile from "./components/employee/EmployeeProfile";
 import NavBar from "./components/common/NavBar";
 import AddSalary from "./components/salary/AddSalary";
+import ViewSalaries from "./components/salary/ViewSalaries";
+import EditSalary from "./components/salary/EditSalary";
 function App() {
   return (
     <main className="container mt-5">
@@ -27,11 +29,15 @@ function App() {
             exact
             path="/employee-profile/:id"
             element={<EmployeeProfile />}></Route>
-
           <Route
             exact
             path="/create-salary/:id"
             element={<AddSalary />}></Route>
+          <Route
+            exact
+            path="/view-salaries/:id"
+            element={<ViewSalaries />}></Route>
+          <Route exact path="/edit-salary/:id" element={<EditSalary />}></Route>
         </Routes>
       </Router>
     </main>
