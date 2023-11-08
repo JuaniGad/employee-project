@@ -119,12 +119,12 @@ const AddSalary = () => {
         <hr />
 
         <div className="row">
-          <div className="col-sm-3">
+          <div className="col-sm-3">new actualizations with salaries
             <h5 className="mb-0">ID:</h5>
           </div>
 
           <div className="col-sm-9">
-            <p className="text-muted mb-0" htmlFor="idEmployee">
+            <p className="text-muted mb-0">
               {employee.id}
             </p>
           </div>
